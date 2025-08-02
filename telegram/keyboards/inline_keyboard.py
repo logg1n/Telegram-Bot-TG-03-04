@@ -1,5 +1,7 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+from telegram.callbacks import CatCallbackData, NasaCallbackData
+
 dynamic_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="Показать больше", callback_data="show_more")]
@@ -20,3 +22,18 @@ url_keyboard = InlineKeyboardMarkup(
         [InlineKeyboardButton(text="🎬 Видео", url="https://www.youtube.com")]
     ]
 )
+
+breeds_keyboard = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="🐱 Случайный котик", callback_data=CatCallbackData(action="random_cat").pack())],
+    ]
+)
+
+
+nasa_keyboard = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="🪐 Картинка дня", callback_data=NasaCallbackData(action="apod").pack())],
+        [InlineKeyboardButton(text="🚀 Mars фото (Curiosity)", callback_data=NasaCallbackData(action="mars_photo").pack())]
+    ]
+)
+

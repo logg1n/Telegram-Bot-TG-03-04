@@ -4,8 +4,8 @@ from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
-from reply_keyboard import main_keyboard
-from inline_keyboard import url_keyboard, dynamic_keyboard, sub_dynamic_keyboard
+from telegram.keyboards.reply_keyboard import main_keyboard
+from telegram.keyboards.inline_keyboard import url_keyboard, dynamic_keyboard, sub_dynamic_keyboard
 
 def get_router(db):
     router = Router()

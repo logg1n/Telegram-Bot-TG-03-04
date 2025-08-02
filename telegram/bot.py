@@ -4,6 +4,8 @@ from aiogram.types import BotCommand
 
 from config import config
 from routes import get_router
+from routes import cat_router
+from routes import nasa_router
 from database import ORMManager, Student
 
 db = ORMManager("sqlite:///school_data.db", Student)
@@ -19,7 +21,9 @@ async def main():
         BotCommand(command="add", description="Добавить студента: /add <имя> <возраст> <класс>"),
         BotCommand(command="get", description="Получить список студентов или отфильтровать по параметрам"),
         BotCommand(command="help", description="Помощь по командам бота"),
-        BotCommand(command="links", description="Кнопки с ссылками")
+        BotCommand(command="links", description="Кнопки с ссылками"),
+        BotCommand(command="nasa", description="Получить снимок"),
+        BotCommand(command="cat", description="Получить случайного котика")
 
     ]
 
@@ -27,6 +31,9 @@ async def main():
     await bot.set_my_commands(commands)
 
     dp.include_router(get_router(db))
+    dp.include_router(nasa_router)
+    dp.include_router(cat_router)
+
     await dp.start_polling(bot)
 
     await bot.session.close()
