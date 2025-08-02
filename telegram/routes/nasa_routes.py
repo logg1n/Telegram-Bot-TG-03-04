@@ -13,9 +13,9 @@ async def show_nasa_menu(msg: Message):
     await msg.answer("Выбери космический контент:", reply_markup=nasa_keyboard)
 
 @nasa_router.callback_query(NasaCallbackData.filter())
-async def process_nasa_callback(call: CallbackQuery):
-    if call.data == "apod":
+async def process_nasa_callback(call: CallbackQuery, callback_data: NasaCallbackData):
+    if callback_data.action == "apod_nasa":
         data = await get_apod()
-    elif call.data == "mars_photo":
+    elif callback_data.action == "mars_photo_nasa":
         data = await get_mars_photo()
     await call.message.answer_photo(data["url"], caption=data["title"])

@@ -23,8 +23,8 @@ async def main():
         BotCommand(command="help", description="Помощь по командам бота"),
         BotCommand(command="links", description="Кнопки с ссылками"),
         BotCommand(command="nasa", description="Получить снимок"),
-        BotCommand(command="cat", description="Получить случайного котика")
-
+        BotCommand(command="cat", description="Получить случайного котика"),
+        BotCommand(command="dynamic", description="Пример динамической клавиатуры")
     ]
 
     await bot.set_my_short_description("📚 Бот для работы со студентами")

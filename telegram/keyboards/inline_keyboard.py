@@ -32,8 +32,8 @@ breeds_keyboard = InlineKeyboardMarkup(
 
 nasa_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="🪐 Картинка дня", callback_data=NasaCallbackData(action="apod").pack())],
-        [InlineKeyboardButton(text="🚀 Mars фото (Curiosity)", callback_data=NasaCallbackData(action="mars_photo").pack())]
+        [InlineKeyboardButton(text="🪐 Картинка дня", callback_data=NasaCallbackData(action="apod_nasa").pack())],
+        [InlineKeyboardButton(text="🚀 Mars фото (Curiosity)", callback_data=NasaCallbackData(action="mars_photo_nasa").pack())]
     ]
 )
 
